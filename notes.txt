@@ -1,0 +1,139 @@
+Git tutorial:
+
+You are in desktop at first step:
+run $ ls you will get list of files present in desktop folder
+
+now if you want to create a folder in desktop command for that is
+$ mkdir project, name of the folder
+and run $ ls you will see that project folder is created.
+
+now to get inside that project folder run $cd project and enter and you will get inside that folder
+when you run $ ls inside project there is nothing inside that folder cause no file was created inside it.
+
+In this project we want to maintain history of this project folder, git will help in this called as Git repository
+for that run $git init, you will get initialised empty git repository
+but inside there is a folder for that run ls -a which will show hidden files and you will see there is . .. .git file
+
+run $ls git you will see head, description, etc files inside it. No you will be able to maintain histories of this project.
+now randomly create a file, $ touch names.txt and enter and file created.
+Now file is created, now anyone in the world will not know that file is created.
+Run $ git status and enter you will get status of the names.txt added
+Git status tells us that these are the changes that are not currently there in history of your project.
+Now git status is showing that the names.txt files is now untracked files
+
+Imagine you are now at a wedding, couple are in the stage, guests will go on stage for photo,
+whose guests photo not taken, they will go on stage after picture taken , guests come back down, and photo saved in album
+The guests whose photo not taken are untracked files, call guests for photo
+now $ git add ., dot means that everything in current directory, which are untracked, put all files on stage whose photo can be taken.
+You can git add names.txt, can add individually
+
+hit enter and now when you run git status, names.txt file is now green, thier photo is now ready to be taken
+Photographer please click there picture, for that
+$ git commit -m "names.txt file added" and hit enter, -m means message to be added of what you did for that file.
+you will get 1 file changed, 0 insertions, yes true cause you only created the file nothing else.
+
+Now add something in names.txt, for that $vi names.txt, add kunal kushwaha rahul rana community classroom. To exit
+vi editor esc and :x and enter, you will see that these are added in the file, $ cat names.txt will display contents inside the file.
+
+Now you modified the file, git status, you get you modified names.txt now in red.
+
+Now bring them on stage $git add . and enter
+git status now and they are ready for the picture
+
+if you want to remove them from the stage, by mistake you brought them on stage, you photo is already taken, for that
+
+run $ git restore --staged names.txt and hit enter and run git status and they are now again outside the stage.
+
+Now going forward, git add names.txt, git status, git commit -m "names.txt modified"
+3 lines added.
+Now you want to see history of file, run $ git log, you will get histories in the form of stack, names.txt file added and above that names.txt file modified along with the name and on what date you modified the file.
+
+Now say you wnat to delete the names.txt file, for that command is rm -rf names.txt and then give git status, it displays that that the names.txt file is deleted.
+Then $ git add . and then git commit -m "names.txt file deleted"
+git log, you will get log in 3 stacks.
+
+Now if you want to remove the commit, if you deleted by mistake, copy the first stack hash of the log
+now all the commit above the first hash stack will be removed.
+now copy the the firts hash of the first stack
+now git reset and paste the hash and then enter. You will get unstaged changes after reset names.txt and check git log, you will see only one commit.
+Before it displayed three commits and now only one commit.
+
+Now you will have the doubt that what happened to the modifications done to names.txt file whixh was done before deleting it?
+Git status and you will see that for example, people whose photos were taken has now been deleted. 
+
+Now lets say we dont want delete the file, photos whose got deleted,go to the back stage, and when we want you back we will get you back for the photo.
+
+If there was a way for example if you can store the progress of your work, without commiting or saving in the history of the project, and get these things back when I want
+Now bring the people on stage, git add . and then git status, deleted names.txt now in green
+Now make another change touch surnames.txt and git add . and then git status renamed names.txt ->surnames.txt
+
+vi surnames.txt, add kushwaha in the file and exit, 
+and then touch houses.txt, git add . and then git status now renamed names.txt ->houses.txt
+newfile: surnames.txt
+
+now whenver i want you to go backstage and come back whenever i want you to come back
+Now run $ git stash, you get savedworking directory, git status you get working tree clean, git log now, only one commit
+run cat names.txt, empty file
+
+Now you put people in backstage, call them back in front stage for that $ git stash pop.
+new file houses.txt and surnames.txt came back, deleted names.txt file in red
+
+Now git add . and then they are in backstage, we dont need your photo, so $ git stash clear, changes that were made that were not committed, now they are gone
+
+Now create a repository in your github account, you get url, copy url
+in git bash $ git remote add origin and paste url and hit enter
+$ git remote -v you will get fetch and push with same url
+Now to publish your files in your github account, $ git push origin master and hit enter, refresh github, your file is uploaded.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
